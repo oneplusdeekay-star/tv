@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.dk.tvlauncher'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.dk.tvlauncher"
+        minSdk 30          // OnePlus TV Y1S Pro runs Android 11 (SDK 30)
+        targetSdk 33       // recent enough that Android 14 sets accept the install
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+// No third-party dependencies on purpose: plain Views keep the launcher light
+// and the build independent of anything except the Android Gradle Plugin.
+dependencies {
+}
